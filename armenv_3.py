@@ -41,10 +41,10 @@ class ArmEnv(Box2DEnv, Serializable):
             [-np.pi,np.pi]
         ])
         low, high = bounds
-        aarm1,aarm2,aarm3 = np.random.uniform(low, high)
-        self.arm1.angle = aarm1
-        self.arm2.angle = aarm2
-        self.arm3.angle = aarm3
+        aarm1,aarm2,aarm3 = np.random.uniform(-np.pi, np.pi,(3,1,1))
+        self.arm1.angle = aarm1[0][0]
+        self.arm2.angle = aarm2[0][0]
+        self.arm3.angle = aarm3[0][0]
         return self.get_current_obs()
 
 
