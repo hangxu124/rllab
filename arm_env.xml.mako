@@ -1,26 +1,25 @@
 <%
     from rllab.misc.mako_utils import compute_rect_vertices
-    #link_len = opts['link_len']
-    arm_len=1.0
+    link_len = opts['link_len']
     arm_width = 0.1
 %>
 
 <box2d>
   <world timestep="0.01" velitr="20" positr="20">
-    <body name="arm1" type="dynamic" position="0,0">
+    <body name="arm1" type="dynamic" position="0,2">
       <fixture
               density="1.0"
               group="-1"
               shape="polygon"
-              vertices="${compute_rect_vertices([0,2], [0, 3], arm_width/2)}"
+              vertices="${compute_rect_vertices([0,0], [0, link_len], arm_width/2)}"
       />
     </body>
-    <body name="arm2" type="dynamic" position="0,0" >
+    <body name="arm2" type="dynamic" position="0,3" >
       <fixture
               density="1.0"
               group="-1"
               shape="polygon"
-              vertices="${compute_rect_vertices([0,3], [0,4], arm_width/2)}"
+              vertices="${compute_rect_vertices([0,0], [0,link_len], arm_width/2)}"
       />
     </body>
     <body name="point" type="static" position="1 0.6">
